@@ -52,15 +52,25 @@
         public List<string> JaratokRepuloterrol(string kezdetiRepuloter)
         {
             List<string> lista = new List<string>();
-            
-            foreach (var jarat in jaratok)
+
+            // Nincsen írva, hogy mire kell tesztelni/hibát visszadobnia, így én találom ki (mondjuk ez a logikus és szerintem egyetlen hibalehetőség ennél as függvénynél)
+
+            if (jaratok.Any(j => j.kezdetiRepuloter != kezdetiRepuloter))
             {
-                if (jarat.kezdetiRepuloter == kezdetiRepuloter)
-                {
-                    lista.Add(jarat.jaratSzam);
-                }
+                throw new ArgumentException("Nincs ilyen repülőtér!");
             }
-            return lista;
+            else
+            {
+                foreach (var jarat in jaratok)
+                {
+                    if (jarat.kezdetiRepuloter == kezdetiRepuloter)
+                    {
+                        lista.Add(jarat.jaratSzam);
+                    }
+                }
+                return lista;
+            }
+
         }
     }
 }
