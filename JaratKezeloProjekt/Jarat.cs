@@ -13,6 +13,5 @@ namespace JaratKezeloProjekt
         public string celRepuloter { get; set; }
         public DateTime indulasIdopontja { get; set; }
         public int aktualisKeses { get; set; }
-
     }
 }
